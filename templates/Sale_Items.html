@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cossetted Classics</title>
+</head>
+<body>
+     {% for task in Sale_Item %}
+        {{ task.Sellers_Name }}<br>
+        {{ task.Sellers_Phone_Number }}<br>
+        {{ task.Email_Address }}<br>
+        {{ task.Man_Name }}<br>
+        {{ task.description_Of_Item}}<br>
+     {% endfor %}
+</body>
+</html>
