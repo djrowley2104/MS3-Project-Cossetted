@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/get_tasks")
 def get_tasks():
     sale_items = mongo.db.Sale_Item.find()
-    return render_template("tasks.html", sale_items=sale_items)
+    return render_template("tasks.html", Sale_Item=sale_items)
 
 
 if __name__ == "__main__":
