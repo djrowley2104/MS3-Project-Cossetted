@@ -18,35 +18,48 @@
             <div class="nav-wrapper blue lighten-2 shadow">
             <a href="#" class="brand-logo">Logo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('register') }}"></a>Login</li>
-                <li><a href="{{ url_for('register') }}">Sign Up</a></li>
-                <li><a href="#">Cars for Sale</a></li>
-                <li><a href="#">Bikes for Sale</a></li>
-                <li><a href="#">Boats for Salb</a></li>
-                <li><a href="#}">home</a></li>
-                
-            </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Cars for Sale</a></li>
+                    <li><a href="#">Bikes for Sale</a></li>
+                    <li><a href="#">Boats for Sale</a></li>
+                    <li><a href="#">Parts for Sale</a></li>
+                    <li><a href="{{ url_for('get_tasks') }}">home</a></li>
+                </ul>
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Login to Account</a></li>
-            <li><a href="#"></a>Sign Up</li>
-            <li><a href="#">Cars for Sale</a></li>
-            <li><a href="#">Bikes for Sale</a></li>
-            <li><a href="#">Boats for Salb</a></li>
-            <li><a href="/templates/base.html">home</a></li>
+            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('login') }}">Cars for Sale</a></li>
+                <li><a href="#">Bikes for Sale</a></li>
+                <li><a href="#">Boats for Sale</a></li>
+                <li><a href="#">Parts for Sale</a></li>
+                <li><a href="{{ url_for('get_tasks') }}">home</a></li>
         </ul>
   </header>
 
+<section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
 
+    <main class="container">
+         <h1>I'm part of the base template!</h1>
+        {% block content %}
+        {% endblock %}
+    </main>
 
-    <h1>I'm part of the base template!</h1>
-    {% block content %}
-    {% endblock %}
-
-
-
+   
   <footer class="page-footer blue lighten-2 shadow">
     <div class="container">
       <div class="row">
