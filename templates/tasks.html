@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>hi is this the real taskfhfhfs</h1>
-    {% for item in Sale_Item %}
-        {{ item.Sellers_Class }}<br>
-        {{ item.Sellers_Name }}<br>
-        {{ item.Sellers_Phone_Number }}<br>
-        {{ item.Email_Address }}<br>
-        {{ item.Item_For_Sale }}<br>
-        {{ item.Manufacturer }}<br>
-        {{ item.Model }}<br>
-        {{ item.Engine_Size }}<br>
-        {{ item.Description_of_Item }}<br>
-    {% endfor %}
+
+    <ul class="collapsible">
+        {% for task in Sale_Item %}
+        <li>
+            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+                <i class="fas fa-caret-down"></i>
+                <strong>{{ task.Sellers_Name }}</strong> : {{ task.Item_For_Sale }}
+            </div>
+            <div class="collapsible-body">
+                <strong>{{ task.Sellers_Class }}</strong>
+                <p>{{ task.Ddescription_Of_Item }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
