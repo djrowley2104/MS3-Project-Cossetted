@@ -21,9 +21,9 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('login') }}">Cars for Sale</a></li>
-                    <li><a href="#">Bikes for Sale</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Cars for Sale</a></li>
                     <li><a href="#">Boats for Sale</a></li>
+                    <li><a href="#">Motorbikes for Sale</a></li>
                     <li><a href="#">Parts for Sale</a></li>
                     <li><a href="{{ url_for('get_tasks') }}">home</a></li>
                 </ul>
@@ -32,7 +32,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('login') }}">Cars for Sale</a></li>
+                <li><a href="#">Cars for Sale</a></li>
                 <li><a href="#">Bikes for Sale</a></li>
                 <li><a href="#">Boats for Sale</a></li>
                 <li><a href="#">Parts for Sale</a></li>
