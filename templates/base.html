@@ -21,8 +21,8 @@
                 <ul class="right hide-on-med-and-down">
                    {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Classics for Sale</a></li>
-                    <li><a href="#">Parts for Sale</a></li>
-                    <li><a href="#">Sell Classic</a></li>
+                    <li><a href="{{ url_for('sellitem') }}">Parts for Sale</a></li>
+                    <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
                     <li><a href="{{ url_for('get_tasks') }}">home</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% if session.user|lower == "admin"|lower %}

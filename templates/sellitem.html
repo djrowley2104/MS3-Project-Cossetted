@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Sell Classic - please add details</h3>
+    <h3 class="center-align">Sell Item - please add details</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('sellclassic') }}">
+        <form class="col s12" method="POST" action="">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
-                    <input id="Seller_Class" name="Seller_Class" type="text" class="validate" required>
+                    <input id="Seller_Class" name="Seller_Class" type="text" class="validate">
                     <label for="Seller_Class">Class</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-                    <input id="Sellers_Name" name="Sellers_Name" minlength="5"
-                    maxlength="50" type="text" class="validate" required>
+                    <input id="Sellers_Name" name="Sellers_Name" type="text" class="validate">
                     <label for="Sellers_Name">Name</label>
                 </div>
                  <div class="input-field col s12">
@@ -65,7 +64,6 @@
                 </div>
             </div>
             {% if session.user|lower == "admin"|lower %}
-            #accept for the admin user to accept the addvert
                 <div class="row">
                     <div class="input-field col s12">
                         <div class="switch">
@@ -80,15 +78,6 @@
                     </div>
                 </div>
             {% endif %}
-            <div class="row">
-                #Submit button
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Add Task <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
-
         </form>
     </div>
 
