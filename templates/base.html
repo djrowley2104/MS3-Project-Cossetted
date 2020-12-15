@@ -16,14 +16,15 @@
     <header>
         <nav>
             <div class="nav-wrapper blue lighten-2 shadow">
-            <a href="#" class="brand-logo">Logo</a>
+            <a href="{{ url_for('home') }}" class="brand-logo">Cossted Classics</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                    {% if session.user %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Classics for Sale</a></li>
-                    <li><a href="{{ url_for('sellitem') }}">Parts for Sale</a></li>
+                    <li><a href="{{ url_for('get_tasks') }}">Sale Items</a></li>
+                    <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
                     <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
-                    <li><a href="{{ url_for('get_tasks') }}">home</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% if session.user|lower == "admin"|lower %}
                     <li><a href="#">Me</a></li>
@@ -60,7 +61,8 @@
     </section>
 
     <main class="container">
-         <h1>I'm part of the base template!</h1>
+         <h1>Cosseted Classic</h1>
+         <p>Helping classic lovers find classics to love and enjoy!</p>
         {% block content %}
         {% endblock %}
     </main>

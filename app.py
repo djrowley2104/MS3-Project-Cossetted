@@ -23,6 +23,10 @@ def get_tasks():
     sale_items = mongo.db.Sale_Item.find()
     return render_template("tasks.html", Sale_Item=sale_items)
 
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -122,7 +126,7 @@ def sellitem():
         }
         mongo.db.Sale_Item.insert_one(task)
         flash("Spares Successfully Added")
-        return redirect(url_for("home.html"))
+        return redirect(url_for("get_tasks"))
 
     return render_template("sellitem.html")    
 
