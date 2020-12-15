@@ -24,11 +24,7 @@
                     <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
                     <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% if session.user|lower == "admin"|lower %}
-                    <li><a href="#">Me</a></li>
-                    {% endif %}
                    {% else %}
                     <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
@@ -37,13 +33,16 @@
             </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('register') }}">Sign Up</a></li>
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="#">Cars for Sale</a></li>
-                <li><a href="#">Bikes for Sale</a></li>
-                <li><a href="#">Boats for Sale</a></li>
-                <li><a href="#">Parts for Sale</a></li>
-                <li><a href="{{ url_for('get_tasks') }}">home</a></li>
+            {% if session.user %}
+              <li><a href="{{ url_for('get_tasks') }}">Sale Items</a></li>
+              <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
+              <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
+              <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
+              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+              <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+              <li><a href="{{ url_for('login') }}">Log In</a></li>
+            {% endif %}
         </ul>
   </header>
 
