@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="center-align">Sell Classic - please add details</h3>
+
+    <div class="row">
+        <form class="col s12" method="POST" action="{{ url_for('editclassic') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
+                    <input id="Sellers_Class" name="Sellers_Class" type="text" class="validate" required>
+                    <label for="Sellers_Class">Class</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="Sellers_Name" name="Sellers_Name" minlength="5"
+                    maxlength="50" type="text" class="validate" required>
+                    <label for="Sellers_Name">Name</label>
+                </div>
+                 <div class="input-field col s12">
+                    <i class="fas fa-phone prefix light-blue-text text-darken-4"></i>
+                    <input id="Sellers_Phone_Number" name="Sellers_Phone_Number" type="tel" class="validate" required>
+                    <label for="Sellers_Phone_Number">Sellers Phone Number</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-envelope-square prefix light-blue-text text-darken-4"></i>
+                    <input id="Email_Address" name="Email_Address" type="tel" class="validate" required>
+                    <label for="Email_Address"> Email Address</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="far fa-keyboard prefix light-blue-text text-darken-4"></i>
+                    <input id="Item_For_Sale" name="Item_For_Sale" type="tel" class="validate">
+                    <label for="Item_For_Sale">Item for Sale</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="far fa-keyboard prefix light-blue-text text-darken-4"></i>
+                    <input id="Manufacturer" name="Manufacturer" type="text" class="validate">
+                    <label for="Manufacturer">Manufacturer</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="far fa-keyboard prefix light-blue-text text-darken-4"></i>
+                    <input id="Model" name="Model" type="tel" class="validate">
+                    <label for="Model">Model</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="far fa-keyboard prefix light-blue-text text-darken-4"></i>
+                    <input id="Engine_Size" name="Engine_Size" type="text" class="validate">
+                    <label for="Engine_Size">Engine Size</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="Description_Of_Item" name="Description_Of_Item" minlength="5"
+                        maxlength="500" class="materialize-textarea validate" required></textarea>
+                    <label for="Description_Of_Item">Item Description</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="fas fa-camera-retro prefix light-blue-text text-darken-4"></i>
+                    <input id="Photo" name="Photo" type="text" class="validate">
+                    <label for="Photo">Add Photos (Max 12)</label>
+                </div>
+            </div>
+            {% if session.user|lower == "admin"|lower %}
+            #accept for the admin user to accept the addvert
+                <div class="row">
+                    <div class="input-field col s12">
+                        <div class="switch">
+                            <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                            <label for="approved">
+                                Un-Approved
+                                <input type="checkbox" id="approved" name="approved">
+                                <span class="lever"></span>
+                                Approved
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                #Submit button
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Add Task <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

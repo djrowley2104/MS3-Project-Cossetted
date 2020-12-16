@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -16,11 +17,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-@app.route("/")
 
 @app.route("/get_tasks")
 def get_tasks():
-    sale_items = list(mongo.db.Sale_Item.find())
+    sale_items = mongo.db.Sale_Item.find()
     return render_template("tasks.html", Sale_Item=sale_items)
 
 @app.route("/home")
@@ -130,11 +130,6 @@ def sellitem():
         return redirect(url_for("get_tasks"))
 
     return render_template("sellitem.html")    
-
-@app.route("/edit_classic/<task_id>", methods=["GET", "POST"])
-def edit_classic(task_id):
-    task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
-    return render_template("sellitem_edit.html", task=task)
 
 
 @app.route("/logout")
