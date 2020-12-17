@@ -7,10 +7,15 @@
         <form class="col s12" method="POST" action="{{ url_for('sellitem') }}">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-user-circle prefix light-blue-text text-darken-4"></i>
-                    <input id="Sellers_Class" name="Sellers_Class" type="text" class="validate">
-                    <label for="Sellers_Class">Class</label>
-                </div>
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					<select id="saletype" name="saletype" class="validate" required>
+                        <option value="saletype" disabled selected>Choose Category</option>
+                        {% for category in saletype %}
+                            <option value="{{ category.salename }}">{{ category.salename }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="saletype">Task Category</label>
+				</div>
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
                     <input id="Sellers_Name" name="Sellers_Name" type="text" class="validate">
