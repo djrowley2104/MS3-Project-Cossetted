@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-					<select id="saletype" name="saletype" class="validate" required>
-                        <option value="saletype" disabled selected>Choose Category</option>
+					<select id="Sellers_Class" name="Sellers_Class" class="validate" required>
+                        <option value="Sellers_Class" disabled selected>Choose Category</option>
                         {% for category in saletype %}
                             <option value="{{ category.salename }}">{{ category.salename }}</option>
                         {% endfor %}
@@ -74,7 +74,7 @@
                                 Approved
                             </label>
                         </div>
-
+            {% endif %}
             <div class="row">
                 #Submit button
                 <div class="col s12 center-align">
@@ -91,5 +91,4 @@
 
         </form>
     </div>
-
 {% endblock %}

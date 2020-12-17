@@ -88,6 +88,7 @@ def profile(username):
 @app.route("/sellclassic", methods=["GET", "POST"])
 def sellclassic():
     if request.method == "POST":
+        user = mongo.db.users.find_one({"username": session["user"] })
         approved = "approved" if request.form.get("approved") else "off"
         task = {
             "Sellers_Class": request.form.get("Sellers_Class"),
@@ -100,7 +101,7 @@ def sellclassic():
             "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": session["user"]
+            "created_by": ObjectId(user["_id"])
         }
         mongo.db.Sale_Item.insert_one(task)
         flash("Classic Successfully Added")
@@ -113,6 +114,8 @@ def sellclassic():
 @app.route("/sellitem", methods=["GET", "POST"])
 def sellitem():
     if request.method == "POST":
+        user = mongo.db.users.find_one({"username": session["user"] })
+        approved = "approved" if request.form.get("approved") else "off"
         task = {
             "Sellers_Class": request.form.get("Sellers_Class"),
             "Sellers_Name": request.form.get("Sellers_Name"),
@@ -123,7 +126,7 @@ def sellitem():
             "Model": request.form.get("Model"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": session["user"]
+            "created_by": ObjectId(user["_id"])
         }
         mongo.db.Sale_Item.insert_one(task)
         flash("Spares Successfully Added")
@@ -139,10 +142,12 @@ def edit_classic(task_id):
     return render_template("sellitem_edit.html", task=task, saletype=categories)
 
 @app.route("/edititem/<task_id>", methods=["GET", "POST"])
-def edititem():
+def edititem(task_id):
     if request.method == "POST":
+        user = mongo.db.users.find_one({"username": session["user"] })
+        print("user", user)
         update = {
-            "Sellers_Class": request.form.get("Sellers_Class"),
+            "Sellers_Class": ObjectId(request.form.get("saletype")),
             "Sellers_Name": request.form.get("Sellers_Name"),
             "Sellers_Phone_Number": request.form.get("Sellers_Phone_Number"),
             "Email_Address": request.form.get("Email_Address"),
@@ -151,13 +156,14 @@ def edititem():
             "Model": request.form.get("Model"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": session["user"]
+            "created_by": ObjectId(user["_id"])
         }
         mongo.db.Sale_Item.update({"_id": ObjectId(task_id)}, update)
         flash("Spares Successfully Updated")
         
     categories = mongo.db.saletype.find()
-    return render_template("sellitem_edit.html", saletype=categories)    
+    task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
+    return render_template("sellitem_edit.html", task=task)    
 
 
 @app.route("/logout")
