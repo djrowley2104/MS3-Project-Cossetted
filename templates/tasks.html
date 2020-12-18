@@ -3,10 +3,10 @@
     {% for task in Sale_Item %}
     <div class="row">
         {% if task.approved or session.user == "admin"|lower %}
-        <div class="col s3">
+        <div class="col s8 m4">
 			   <div class="card">
 				<div class="card-image s8">
-				  <img class="activator" src="{{ task.Photo or url_for('static', filename='images/comicbike.png') }}" width="auto" height="200px">
+				  <img class="activator" src="{{ task.Photo or url_for('static', filename='images/comicbike.png') }}" width="auto" height="auto">
 				</div>
 				<div class="card-content">
 				  <span class="card-title activator grey-text text-darken-4">{{ task.Sellers_Name }}<i class="material-icons right"></i></span>
@@ -18,23 +18,29 @@
 				</div>
                </div>
                {% if session.user|lower == "admin"|lower %}
-                <div class="col s3">
-                    <i class="fas fa-caret-down"></i>
-                    <a href="" class="btn-small green accent-4">Done</a>
-                    <a href="{{ url_for('edit_classic', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                <div class="col s12">
+                    <div class="col s3">
+                        <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small red lighten-1">Delete</a>
+                    </div>
+                    <div class="col s3">
+                        <a href="{{ url_for('edit_classic', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+
+                    </div>
+                    
+                    
                 </div>
                 {% endif %}
-                              
-                <div class="col s9">
-                    <strong>{{ task.Item_For_Sale }}</strong>
-                    {% if task.is_urgent == "on" %}
+                {% if task.is_urgent == "on" %}              
+                    <div class="col s3">
+                        <strong>{{ task.Item_For_Sale }}</strong>
                         <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
-                            data-position="right" data-tooltip="URGENT!"></i>
-                    {% endif %}
-                </div>
+                        data-position="right" data-tooltip="URGENT!"></i>
+                    </div>
+                {% endif %}
                 <div class="collapsible-body">
                 <strong>{{ task.Sellers_Class }}</strong>
-                <p>{{ task.Item_For_Sale }}</p> 
+                <p>{{ task.Item_For_Sale }}</p>
+                <p>{{ task.Engine_Size }}</p> 
                 <p>{{ task.Description_Of_Item }}</p>
                 <p><em>by: {{ task.created_by }}</em></p>
                 </div>

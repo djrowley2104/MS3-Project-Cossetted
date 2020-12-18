@@ -105,7 +105,7 @@ def sellclassic():
         }
         mongo.db.Sale_Item.insert_one(task)
         flash("Classic Successfully Added")
-        return redirect(url_for("sellclassic"))
+        return redirect(url_for("get_tasks"))
 
     categories = mongo.db.saletype.find()
     return render_template("sellclassic.html", saletype=categories)
@@ -115,7 +115,6 @@ def sellclassic():
 def sellitem():
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"] })
-        approved = "approved" if request.form.get("approved") else "off"
         task = {
             "Sellers_Class": request.form.get("Sellers_Class"),
             "Sellers_Name": request.form.get("Sellers_Name"),
@@ -124,6 +123,7 @@ def sellitem():
             "Item_For_Sale": request.form.get("Item_For_Sale"),
             "Manufacturer": request.form.get("Manufacturer"),
             "Model": request.form.get("Model"),
+            "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
             "created_by": ObjectId(user["_id"])
@@ -154,16 +154,24 @@ def edititem(task_id):
             "Item_For_Sale": request.form.get("Item_For_Sale"),
             "Manufacturer": request.form.get("Manufacturer"),
             "Model": request.form.get("Model"),
+            "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
             "created_by": ObjectId(user["_id"])
         }
         mongo.db.Sale_Item.update({"_id": ObjectId(task_id)}, update)
         flash("Spares Successfully Updated")
+        return redirect(url_for("get_tasks"))
         
     categories = mongo.db.saletype.find()
     task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
-    return render_template("sellitem_edit.html", task=task)    
+    return render_template("sellitem_edit.html", task=task)
+
+@app.route("/delete_task/<task_id>")
+def delete_task(task_id):
+    mongo.db.Sale_Item.remove({"_id": ObjectId(task_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("get_tasks"))
 
 
 @app.route("/logout")
