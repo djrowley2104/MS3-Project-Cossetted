@@ -145,7 +145,6 @@ def edit_classic(task_id):
 def edititem(task_id):
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"] })
-        print("user", user)
         update = {
             "Sellers_Class": ObjectId(request.form.get("saletype")),
             "Sellers_Name": request.form.get("Sellers_Name"),
@@ -165,7 +164,7 @@ def edititem(task_id):
         
     categories = mongo.db.saletype.find()
     task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
-    return render_template("sellitem_edit.html", task=task)
+    return render_template("sellitem_edit.html", task=task, saletype=categories)
 
 @app.route("/delete_task/<task_id>")
 def delete_task(task_id):

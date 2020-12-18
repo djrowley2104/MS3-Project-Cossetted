@@ -8,10 +8,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                        <select id="Sellers_Class" name="Sellers_Class" value="{{ task.Sellers_Class }}" class="validate" required>
-                        <option value="Sellers_Class" disabled selected>{{ task.Sellers_Class }}</option>
+                        <select id="Sellers_Class" name="saletype" class="validate" required>
                         {% for category in saletype %}
-                            <option value="{{ category.salename }}">{{ category.salename }}</option>
+                            <option value="{{ category._id }}" {% if category._id == task.Sallers_Class %} selected {% endif %}>{{ category.salename }}</option>
                         {% endfor %}
                     </select>
 
