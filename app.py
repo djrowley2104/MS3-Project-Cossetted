@@ -180,6 +180,11 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+@app.route("/edit_saletype")
+def edit_saletype():
+    type = list(mongo.db.saletype.find().sort("salename", 1))
+    return render_template("tasks_to_edit.html", saletype=type)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

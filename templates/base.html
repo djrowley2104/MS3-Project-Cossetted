@@ -23,6 +23,9 @@
                     <li><a href="{{ url_for('get_tasks') }}">Sale Items</a></li>
                     <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
                     <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
+                     {% if session.user|lower == "admin"|lower %}
+                        <li><a href="edit_saletype">Edit Sale Types</a></li>
+                     {% endif %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                    {% else %}
