@@ -3,33 +3,27 @@
     {% for task in Sale_Item %}
     <div class="row">
         <div class="col s8 m4">
-			   <div class="card">
-				<div class="card-image s8">
-				  <img class="activator" src="{{ task.Photo or url_for('static', filename='images/comicbike.png') }}" width="auto" height="auto">
-				</div>
-				<div class="card-content">
-				  <span class="card-title activator grey-text text-darken-4">{{ task.Sellers_Name }}<i class="material-icons right"></i></span>
-				</div>
-				<div class="card-reveal">
-				  <span class="card-title grey-text text-darken-4">{{ task.Item_For_Sale }}<i class="far fa-window-close right"></i></span>
-				  <p>{{ task.Manufacturer }}</p> 
-                  <p>{{ task.Description_Of_Item }}</p>
+			    <div class="card">
+                    <div class="card-image s8">
+                        <img class="activator" src="{{ task.Photo or url_for('static', filename='images/comicbike.png') }}" width="auto" height="auto">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ task.Sellers_Name }}<i class="material-icons right"></i></span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ task.Item_For_Sale }}<i class="far fa-window-close right"></i></span>
+                            <p>{{ task.Manufacturer }}</p> 
+                            <p>{{ task.Description_Of_Item }}</p>
 				</div>
                </div>
                {% if session.user|lower == "admin"|lower %}
-                <div class="col s12">
-                    <div class="col s3">
-                        <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small red lighten-1">Delete</a>
-                    </div>
-                    <div class="col s3">
-                        <a href="{{ url_for('edit_classic', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                <div class="card-action">
+                    <a href="{{ url_for('edit_classic', task_id=task._id) }}" class="btn-small light-blue lighten-1">Edit</a>
+                    <a href="{{ url_for('delete_task', task_id=task._id) }}" class="btn-small red lighten-1">Delete</a>
 
-                    </div>
-                    
-                    
                 </div>
                 {% endif %}
-                {% if task.is_urgent == "on" %}              
+                {% if task.approved == "on" %}              
                     <div class="col s3">
                         <strong>{{ task.Item_For_Sale }}</strong>
                         <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"

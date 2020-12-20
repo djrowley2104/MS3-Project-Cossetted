@@ -4,11 +4,27 @@
     <div class="row">
         <div class="col s12 m8 offset-m2">
             <div class="blue lighten-2">
-                <h1 class="center-align">List of Tasks</h1>
+                <h1 class="center-align">List of Sale Types</h1>
                 <h3 class="center-align black-text text-darken 4">
                     Please edit carefully
                 </h3>
             </div>
+            <div class="row">
+                {% for sale in saletype %}
+                    <div class="col s12 m4">
+                        <div class="card light-blue darken-4 center-align">
+                            <div class="card-content white-text">
+                                <span class="card-title shadow white-text">{{ sale.salename }}</span>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" class="btn-small light-blue lighten-1">Edit</a>
+                                <a href="#" class="btn-small red lighten-1">Delete</a>
+                            </div>
+                    
+                        </div>
+                    </div>
+                {% endfor %}
+    </div>
         </div>
 
         

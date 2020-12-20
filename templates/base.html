@@ -20,9 +20,8 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                    {% if session.user %}
-                    <li><a href="{{ url_for('get_tasks') }}">Sale Items</a></li>
-                    <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
-                    <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
+                    <li><a href="{{ url_for('get_tasks') }}">Buy</a></li>
+                    <li><a href="{{ url_for('sellclassic') }}">Sell</a></li>
                      {% if session.user|lower == "admin"|lower %}
                         <li><a href="edit_saletype">Edit Sale Types</a></li>
                      {% endif %}
@@ -37,15 +36,17 @@
         </nav>
         <ul class="sidenav" id="mobile-demo">
             {% if session.user %}
-              <li><a href="{{ url_for('get_tasks') }}">Sale Items</a></li>
-              <li><a href="{{ url_for('sellitem') }}">Sell Parts</a></li>
-              <li><a href="{{ url_for('sellclassic') }}">Sell Classic</a></li>
-              <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
-              <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-              <li><a href="{{ url_for('register') }}">Sign Up</a></li>
-              <li><a href="{{ url_for('login') }}">Log In</a></li>
-            {% endif %}
+                    <li><a href="{{ url_for('get_tasks') }}">Buy</a></li>
+                    <li><a href="{{ url_for('sellclassic') }}">Sell</a></li>
+                     {% if session.user|lower == "admin"|lower %}
+                        <li><a href="edit_saletype">Edit Sale Types</a></li>
+                     {% endif %}
+                    <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                   {% else %}
+                    <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                   {% endif %}
         </ul>
   </header>
 
