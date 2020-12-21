@@ -156,10 +156,10 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-@app.route("/edit_saletype")
-def edit_saletype():
+@app.route("/get_saletype")
+def get_saletype():
     type = list(mongo.db.saletype.find().sort("salename", 1))
-    return render_template("saletype_to_edit.html", saletype=type)
+    return render_template("saletype_to_get.html", saletype=type)
 
 
 @app.route("/add_saletype", methods=["GET", "POST"])
@@ -169,10 +169,33 @@ def add_saletype():
             "salename": request.form.get("salename")
         }
         mongo.db.saletype.insert_one(saletype)
-        flash("New Category Added")
-        return redirect(url_for("edit_saletype"))
+        flash("New Sale Type Added")
+        return redirect(url_for("get_saletype"))
 
     return render_template("add_saletype.html")
+
+
+@app.route("/edit_saletype/<category_id>", methods=["GET", "POST"])
+def edit_saletype(category_id):
+
+    if request.method == "POST":
+        submit = {
+            "salename": request.form.get("sale_name")
+        }
+        mongo.db.saletype.update({"_id": ObjectId(category_id)}, submit)
+        flash("Sqale Type Successfully Updated")
+        return redirect(url_for("get_saletype"))
+
+    salecat = mongo.db.saletype.find()
+    saletype = mongo.db.saletype.find_one({"_id": ObjectId(category_id)})
+    return render_template("saletype_to_edit.html", saletype=saletype, salecat=salecat)
+
+
+@app.route("/delete_saletype/<category_id>")
+def delete_saletype(category_id):
+    mongo.db.saletype.remove({"_id": ObjectId(category_id)})
+    flash("Sale Type Successfully Deleted")
+    return redirect(url_for("get_saletype"))
 
 
 if __name__ == "__main__":

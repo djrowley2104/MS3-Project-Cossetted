@@ -9,34 +9,34 @@
                     Please edit carefully
                 </h3>
             </div>
-
+          
+        </div>
+        <form class="col s12" method="POST" action="{{ url_for('edit_saletype', category_id=saletype._id) }}">
+            <!-- saletype name -->
             <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('add_saletype') }}" class="btn-large light-blue darken-2 text-shadow">
-                        Add Sale Type <i class="fas fa-plus-square right"></i>
-                    </a>
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                    <select id="salename" name="salename" class="validate" required>
+                        <option value="salename" disabled selected>Choose Category</option>
+                        {% for salecat in saletype %}
+                            <option value="{{ salecat.salename }}">{{ salecat.salename }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="salename">Task Category</label>
                 </div>
             </div>
-
-
-
+            <!-- submit changes button -->
             <div class="row">
-                {% for sale in saletype %}
-                    <div class="col s12 m4">
-                        <div class="card light-blue darken-4 center-align">
-                            <div class="card-content white-text">
-                                <span class="card-title shadow white-text">{{ sale.salename }}</span>
-                            </div>
-                            <div class="card-action">
-                                <a href="#" class="btn-small light-blue lighten-1">Edit</a>
-                                <a href="#" class="btn-small red lighten-1">Delete</a>
-                            </div>
-                    
-                        </div>
-                    </div>
-                {% endfor %}
-    </div>
-        </div>
+                <div class="col s12 center-align">
+                    <a href="{{ url_for('get_saletype') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                        Edit Sale Type <i class="fas fa-edit right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>        
 
         
     </div>
