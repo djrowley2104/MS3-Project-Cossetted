@@ -159,7 +159,20 @@ def logout():
 @app.route("/edit_saletype")
 def edit_saletype():
     type = list(mongo.db.saletype.find().sort("salename", 1))
-    return render_template("tasks_to_edit.html", saletype=type)
+    return render_template("saletype_to_edit.html", saletype=type)
+
+
+@app.route("/add_saletype", methods=["GET", "POST"])
+def add_saletype():
+    if request.method == "POST":
+        saletype = {
+            "salename": request.form.get("salename")
+        }
+        mongo.db.saletype.insert_one(saletype)
+        flash("New Category Added")
+        return redirect(url_for("edit_saletype"))
+
+    return render_template("add_saletype.html")
 
 
 if __name__ == "__main__":
