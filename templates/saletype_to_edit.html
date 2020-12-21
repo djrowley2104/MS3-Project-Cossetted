@@ -16,13 +16,9 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-                    <select id="salename" name="salename" class="validate" required>
-                        <option value="salename" disabled selected>Choose Category</option>
-                        {% for salecat in saletype %}
-                            <option value="{{ salecat.salename }}">{{ salecat.salename }}</option>
-                        {% endfor %}
-                    </select>
-					<label for="salename">Task Category</label>
+                    <input id="salename" name="salename" value="{{ saletype.salename }}" minlength="3" maxlength="25"
+                        type="text" class="validate" required>
+                    <label for="salename">Category Name</label>
                 </div>
             </div>
             <!-- submit changes button -->

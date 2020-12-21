@@ -10,7 +10,7 @@
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
                         <select id="saletype" name="saletype" class="validate" required>
                         {% for category in saletype %}
-                            <option value="{{ category._id }}" {% if category._id == task.Sallers_Class %} selected {% endif %}>{{ category.salename }}</option>
+                            <option value="{{ category._id }}" {% if category._id == task.Sellers_Class %} selected {% endif %}>{{ category.salename }}</option>
                         {% endfor %}
                     </select>
 

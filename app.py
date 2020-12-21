@@ -180,15 +180,14 @@ def edit_saletype(category_id):
 
     if request.method == "POST":
         submit = {
-            "salename": request.form.get("sale_name")
+            "salename": request.form.get("salename")
         }
         mongo.db.saletype.update({"_id": ObjectId(category_id)}, submit)
         flash("Sqale Type Successfully Updated")
         return redirect(url_for("get_saletype"))
 
-    salecat = mongo.db.saletype.find()
     saletype = mongo.db.saletype.find_one({"_id": ObjectId(category_id)})
-    return render_template("saletype_to_edit.html", saletype=saletype, salecat=salecat)
+    return render_template("saletype_to_edit.html", saletype=saletype)
 
 
 @app.route("/delete_saletype/<category_id>")
