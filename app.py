@@ -90,7 +90,7 @@ def sellclassic():
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"] })
         
-        task = {
+        sale = {
             "Sellers_Class": request.form.get("Sellers_Class"),
             "Sellers_Name": request.form.get("Sellers_Name"),
             "Sellers_Phone_Number": request.form.get("Sellers_Phone_Number"),
@@ -103,7 +103,7 @@ def sellclassic():
             "Photo": request.form.get("Photo"),
             "created_by": ObjectId(user["_id"])
         }
-        mongo.db.Sale_Item.insert_one(task)
+        mongo.db.Sale_Item.insert_one(sale)
         flash("Classic Successfully Added")
         return redirect(url_for("get_tasks"))
 
@@ -117,8 +117,8 @@ def edit_classic(task_id):
     task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
     return render_template("sellitem_edit.html", task=task, saletype=categories)
 
-@app.route("/edititem/<task_id>", methods=["GET", "POST"])
-def edititem(task_id):
+@app.route("/edititem/<sale_id>", methods=["GET", "POST"])
+def edititem(sale_id):
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"] })
         update = {
@@ -134,13 +134,13 @@ def edititem(task_id):
             "Photo": request.form.get("Photo"),
             "created_by": ObjectId(user["_id"])
         }
-        mongo.db.Sale_Item.update({"_id": ObjectId(task_id)}, update)
+        mongo.db.Sale_Item.update({"_id": ObjectId(sale_id)}, update)
         flash("Spares Successfully Updated")
         return redirect(url_for("get_tasks"))
         
     categories = mongo.db.saletype.find()
-    task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
-    return render_template("sellitem_edit.html", task=task, saletype=categories)
+    sale = mongo.db.Sale_Item.find_one({"_id": ObjectId(sale_id)})
+    return render_template("sellitem_edit.html", sale=sale, saletype=categories)
 
 @app.route("/delete_task/<task_id>")
 def delete_task(task_id):
@@ -195,7 +195,6 @@ def delete_saletype(category_id):
     mongo.db.saletype.remove({"_id": ObjectId(category_id)})
     flash("Sale Type Successfully Deleted")
     return redirect(url_for("get_saletype"))
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

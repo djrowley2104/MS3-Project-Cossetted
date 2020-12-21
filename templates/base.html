@@ -16,7 +16,8 @@
     <header>
         <nav>
             <div class="nav-wrapper blue lighten-2 shadow">
-            <a href="{{ url_for('home') }}" class="brand-logo">Cosseted Classics</a>
+            <a href="{{ url_for('home') }}" class="brand-logo"><img class="activator" 
+                src="{{ url_for('static', filename='images/Cossetedclassics.png') }}"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                    {% if session.user %}
@@ -63,8 +64,9 @@
         {% endwith %}
     </section>
 
-    <main class="container">
-         <p>Helping classic lovers find classics to love and cherish!</p>
+    <main class="container white-text shadow">
+        <h1>Cosseted Classics</h1> 
+        <p>Helping classic lovers find classics to love and cherish!</p>
         {% block content %}
         {% endblock %}
     </main>
@@ -85,7 +87,6 @@
             <li><a class="white-text" href="#!">Contact Us</a></li>
             <li><a class="white-text" href="#!">Find Local Agent</a></li>
             <li><a class="white-text" href="#!">More Company info</a></li>
-            <li><a class="white-text" href="#!">Bla Bla Bla</a></li>
           </ul>
         </div>
         <div class="col l3 s12">
@@ -93,8 +94,7 @@
           <ul>
             <li><a class="white-text" href="#!">Account Settings</a></li>
             <li><a class="white-text" href="#!">Open Dispute</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            
           </ul>
         </div>
       </div>

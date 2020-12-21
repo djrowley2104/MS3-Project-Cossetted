@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Edit Item - please change the details that need changing</h3>
+    <h3 class="center-align">Edit Item - Please Change the Details that Need Changing</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('edititem', task_id=task._id) }}">
+        <form class="col s12" method="POST" action="{{ url_for('edititem', sale_id=task._id) }}">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
@@ -62,6 +62,7 @@
                     <label for="Photo">Add Photos (Max 12)</label>
                 </div>
             </div>
+            <!-- approve the advert task performed by the admin -->
             {% if session.user|lower == "admin"|lower %}
                 <div class="row">
                     <div class="input-field col s12">
@@ -87,7 +88,7 @@
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                        Edit Task <i class="fas fa-edit right"></i>
+                        Edit Sales Item <i class="fas fa-edit right"></i>
                     </button>
                 </div>
             </div>
