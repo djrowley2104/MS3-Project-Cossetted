@@ -2,6 +2,7 @@
 {% block content %}
     {% for task in Sale_Item %}
     <div class="row">
+        {% if task.Approved == "on" or session.user|lower == "admin"|lower %}
         <div class="col s8 m4">
 			    <div class="card">
                     <div class="card-image s8">
@@ -23,7 +24,7 @@
 
                 </div>
                 {% endif %}
-                {% if task.approved == "on" %}              
+                {% if task.Approved == "on" %}              
                     <div class="col s3">
                         <strong>{{ task.Item_For_Sale }}</strong>
                         <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped"
@@ -39,6 +40,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
     </div>     	
     {% endfor %}
 {% endblock %}

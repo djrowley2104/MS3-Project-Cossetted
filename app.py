@@ -132,7 +132,8 @@ def edititem(sale_id):
             "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": ObjectId(user["_id"])
+            "created_by": ObjectId(user["_id"]),
+            "Approved" : request.form.get ("approved")
         }
         mongo.db.Sale_Item.update({"_id": ObjectId(sale_id)}, update)
         flash("Spares Successfully Updated")
