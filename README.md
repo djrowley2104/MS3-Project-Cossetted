@@ -16,6 +16,7 @@
 
 ## Returning Visitor Goals
 ### As a Returning Visitor, I want them to be able to find what the want and to be able to sell and buy items quickly and easily.
+### The returning user would need to be able to view their profile and to be able to remove any unneeded adds from the site this is done from the both; the buy and the user profile pages.
 
 
 # Design / Features
@@ -26,19 +27,20 @@
 
 ## Colour Scheme
 ### I decided to use a light blue background, no idea why it seems to be calming and relaxed maybe it represents a clear blue sky on a nice day.
+### Test was decided to be set to white, the contrast seems to work quite well.
 Typography
-### 
+### Standard fonts from Materialize, I have no need to over complicate this project, I feel standard san serif font is easier to read and therefore better for the user.
 ## Imagery
 ### Imagery is important. The images used where all taken from Google searchs and then adapted to my requirement using MS Paint.
 ## Home Page Wireframe - View
 ### Below you can see the desktop wireframe;
-<img src="/assets/figures/Desktop.png">;
+<img src="/assets/images/Desktop.png">;
 ## Mobile Wireframe - View
 ### Below you can see the mobile device wire frame;
-<img src="/assets/figures/Mobile.png">;
+<img src="/assets/images/Mobile.png">;
 ## Contact Us Page Wireframe - View
 ### Below you can see the contact page wire frame;
-<img src="/assets/figures/Contactpage.png">;
+<img src="/assets/images/Contactpage.png">;
 # Features
 ## Responsive on all device sizes
 ### After speaking to my mentor I used software called Responsinator to check that the site was able to adapt to many different devices.
@@ -67,8 +69,9 @@ Typography
 ### Balsamiq was used to create the wireframes during the design process.
 
 # Testing
-## I have started to create the base of the website, at the moment I’m having an issue getting the site to work correctly when in mobile mode, the hamburger is displayed, but when you click on it the dropdown menu is not displayed, therefore the js file does not load and work correctly. After lots of work I found the correct way to get the Mongo Data Base talking to my GitPod project and then deployed on Heroku, still having issue with Heroku.
-## Working on GitPod template hoping to get the sign in sorted.
+## I have started to create the base of the website, at the moment I’m having an issue getting the site to work correctly when in mobile mode, the hamburger is displayed, but when you click on it the dropdown menu is not displayed, therefore the js file does not load and work correctly. ## After lots of work I found the correct way to get the Mongo Data Base talking to my GitPod 
+project and then deployed on Heroku, still having issue with Heroku.
+## Working on GitPod template hoping to get the sign in sorted, all seems to work after some teething problems, down to some naming errors in the app.py file, once corrected all is well.
 ## Getting the website to right to the MongoDB, I needed to used the correct logic and re-listen to the tutorials in order to get the logic sorted. Once I got the correct logic, it was easy.
 ## Adding sell item and sell classic to the app.py file and getting them to right to the data base I needed to re-listen to the tutorials again.
 ## Edit Sales item, the field should be populated from the MongoDB, this is not happening, after talking with the tutors, I was able to solve this error, code amended and now it works.
@@ -79,9 +82,11 @@ Typography
 
 
 
-### 
+### Lighthouse Report
+#### From the report you can see that performance is good, accessibility is not good this was due to the way the links were done as the photos were all external links and therefore out of my control. I feel the site is working as well as it can, and it does not have any speed issues, as the code is very clean with no really links to unnecessary site.
+<img src="/assets/images/lighhouse_review_of_site.png">;
 
-### I also used the Responsinator website to test that my site worked for differing screen sizes, once I had the working well in Google Chrome, this test was really to be sure.
+
 ### 
 
 ## Returning Visitor Goals
@@ -123,16 +128,12 @@ Typography
 ### Add this link to the env.py file, paste the link in MONGO_URI section, making sure to add both the collection name and the password. In the correct places, it is imperative that the whole word is replaced, :<password> must be replaced with your password to enter MongoDB, and <dbname> replaced with the collection name you want to connect to.
 <img src="/static/images/envfile.png">;
 ### Once ManogDB and GitHub/GitPod are connected and the site has some content you can test the interaction between the two sites and make sure it works correctly.
-
-
-
 ## Deployment of Heroku
 ### Enter the correct Config Variables into Heroku, ensuring that the MONGO_URI was correct and matched the information contained in the env.py to ensure that both site are able to communicate correctly.
-
 <img src="/static/images/definevariablesheroku.png">;
 ### Next enter the deployment section, and locate the correct GitHub and make sure that they are connected in Heroku.
 <img src="/static/images/connectherokutogithub.png">;
-
+### The site was building but did not display, after reviewing the requirements.txt file I found that I had some requirements missing, once I did a freeze of the requirements.txt file the project was viewable on Heroku.
 
 
 
