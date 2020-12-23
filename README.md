@@ -34,13 +34,13 @@ Typography
 ### Imagery is important. The images used where all taken from Google searchs and then adapted to my requirement using MS Paint.
 ## Home Page Wireframe - View
 ### Below you can see the desktop wireframe;
-<img src="/assets/images/desktopversion.png">;
+<img src="/static/images/desktopversion.png">;
 ## Mobile Wireframe - View
 ### Below you can see the mobile device wire frame;
-<img src="/assets/images/mobileversion.png">;
+<img src="/static/images/mobileversion.png">;
 ## Contact Us Page Wireframe - View
 ### Below you can see the contact page wire frame;
-<img src="/assets/images/Contactpage.png">;
+<img src="/static/images/Contactpage.png">;
 # Features
 ## Responsive on all device sizes
 ### After speaking to my mentor I used software called Responsinator to check that the site was able to adapt to many different devices.
@@ -84,7 +84,7 @@ project and then deployed on Heroku, still having issue with Heroku.
 
 ### Lighthouse Report
 #### From the report you can see that performance is good, accessibility is not good this was due to the way the links were done as the photos were all external links and therefore out of my control. I feel the site is working as well as it can, and it does not have any speed issues, as the code is very clean with no really links to unnecessary site.
-<img src="/assets/images/lighhouse_review_of_site.png">;
+<img src="/static/images/lighhouse_review_of_site.png">;
 
 
 ### 
