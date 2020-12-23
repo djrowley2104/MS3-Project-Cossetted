@@ -34,10 +34,10 @@ Typography
 ### Imagery is important. The images used where all taken from Google searchs and then adapted to my requirement using MS Paint.
 ## Home Page Wireframe - View
 ### Below you can see the desktop wireframe;
-<img src="/assets/images/Desktop.png">;
+<img src="/assets/images/desktopversion.png">;
 ## Mobile Wireframe - View
 ### Below you can see the mobile device wire frame;
-<img src="/assets/images/Mobile.png">;
+<img src="/assets/images/mobileversion.png">;
 ## Contact Us Page Wireframe - View
 ### Below you can see the contact page wire frame;
 <img src="/assets/images/Contactpage.png">;
