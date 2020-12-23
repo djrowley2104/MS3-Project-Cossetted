@@ -82,9 +82,11 @@ def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("classics.html", username=username)
+    sale_items = list(mongo.db.Sale_Item.find())
+    return render_template("account.html", username=username, Sale_Item=sale_items)
 
 
+# For selling an item/classic
 @app.route("/sellclassic", methods=["GET", "POST"])
 def sellclassic():
     if request.method == "POST":
@@ -117,6 +119,7 @@ def edit_classic(task_id):
     task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
     return render_template("sellitem_edit.html", task=task, saletype=categories)
 
+# To edit a item/classic
 @app.route("/edititem/<sale_id>", methods=["GET", "POST"])
 def edititem(sale_id):
     if request.method == "POST":
