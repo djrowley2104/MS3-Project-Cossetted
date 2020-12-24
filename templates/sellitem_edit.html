@@ -4,11 +4,11 @@
     <h3 class="center-align">Edit Item - Please Change the Details that Need Changing</h3>
 
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('edititem', sale_id=task._id) }}">
-            <div class="row">
-                <div class="input-field col s12">
+        <form class="col s12 white-text" method="POST" action="{{ url_for('edititem', sale_id=task._id) }}">
+            <div class="row white-text">
+                <div class="input-field col s12 white-text">
                     <i class="fas fa-folder-open prefix white-text text-darken-4"></i>
-                        <select id="saletype" name="saletype" class="validate" required>
+                        <select id="saletype" name="saletype" class="validate white-text" required>
                         {% for category in saletype %}
                             <option value="{{ category._id }}" {% if category._id == task.Sellers_Class %} selected {% endif %}>{{ category.salename }}</option>
                         {% endfor %}
@@ -16,8 +16,8 @@
 
 				</div>
                 <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix white-text text-darken-4"></i>
-                    <input id="Sellers_Name" name="Sellers_Name" type="text" value="{{ task.Sellers_Name }}" class="validate">
+                    <i class="fas fa-pencil-alt prefix white-text"></i>
+                    <input id="Sellers_Name" name="Sellers_Name" type="text" value="{{ task.Sellers_Name }}" class="validate white-text">
                     <label for="Sellers_Name" class="white-text">Name</label>
                 </div>
                  <div class="input-field col s12">

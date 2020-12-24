@@ -80,9 +80,9 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    sale_items = list(mongo.db.Sale_Item.find())
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+    sale_items = list(mongo.db.Sale_Item.find({ "created_by" : ObjectId (user["_id"])}))
     return render_template("account.html", username=username, Sale_Item=sale_items)
 
 
@@ -103,7 +103,8 @@ def sellclassic():
             "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": ObjectId(user["_id"])
+            "created_by": ObjectId(user["_id"]),
+            "Approved" : request.form.get ("approved")
         }
         mongo.db.Sale_Item.insert_one(sale)
         flash("Classic Successfully Added")
@@ -124,6 +125,7 @@ def edit_classic(task_id):
 def edititem(sale_id):
     if request.method == "POST":
         user = mongo.db.users.find_one({"username": session["user"] })
+        currentitem = mongo.db.Sale_Item.find_one({"_id" : ObjectId(sale_id)})
         update = {
             "Sellers_Class": ObjectId(request.form.get("saletype")),
             "Sellers_Name": request.form.get("Sellers_Name"),
@@ -135,7 +137,7 @@ def edititem(sale_id):
             "Engine_Size": request.form.get("Engine_Size"),
             "Description_Of_Item": request.form.get("Description_Of_Item"),
             "Photo": request.form.get("Photo"),
-            "created_by": ObjectId(user["_id"]),
+            "created_by": ObjectId(currentitem["created_by"]),
             "Approved" : request.form.get ("approved")
         }
         mongo.db.Sale_Item.update({"_id": ObjectId(sale_id)}, update)
