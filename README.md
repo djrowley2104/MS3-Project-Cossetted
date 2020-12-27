@@ -1,8 +1,6 @@
 # Cosseted Classics
-## I have designed this to give the Classic owner the ability to showcase and sell their baby
+## I have designed this site to give the Classic owner the ability to showcase and sell their cherished classic, be it, a motor bike, car or a boat, or just some of the parts for any the above.
 ## The site could be further developed to show clips of the classics running, giving a walk around the classic. 
-## 
-##
 
 # Site Goals
 ## The site is designed to allow users to easily search for classics for sale, and then for the logged in user to find classics for sale and to be allowed to buy and sell classics.
@@ -11,24 +9,22 @@
 # UX / User Experience
 
 ## First Time Visitor Goals
-### As a First Time Visitor, I want them to be able to, login and create an account easily.
-### Once logged in they need to be able to find classics for sale, well after logging in they are directed to this page. 
+### As a First Time Visitor, I want them to be able to be able to, login and create an account easily.
+### Once logged in they need to be able to find classics for sale, well after logging in they are directed to the home page. They can they navigate easily to the items for sale. 
 
 ## Returning Visitor Goals
 ### As a Returning Visitor, I want them to be able to find what the want and to be able to sell and buy items quickly and easily.
-### The returning user would need to be able to view their profile and to be able to remove any unneeded adds from the site this is done from the both; the buy and the user profile pages.
-
+### The returning user would need to be able to view their profile and to be able to remove any un-needed adds from the site, this can be done from the both; the classified adds and the user profile pages.
 
 # Design / Features
 
 ## The site has been designed allow users to only see approved adverts for classics. The adverts are approved by the admin account holder.
-## New sales types can be reviewed and added by the Admin, they can also be deleted if they are no longer needed.
-## 
+## New sales types can be reviewed and added once again only by the Admin, they can also be deleted if they are no longer needed.
 
 ## Colour Scheme
 ### I decided to use a light blue background, no idea why it seems to be calming and relaxed maybe it represents a clear blue sky on a nice day.
 ### Test was decided to be set to white, the contrast seems to work quite well.
-Typography
+## Typography
 ### Standard fonts from Materialize, I have no need to over complicate this project, I feel standard san serif font is easier to read and therefore better for the user.
 ## Imagery
 ### Imagery is important. The images used where all taken from Google searchs and then adapted to my requirement using MS Paint.
@@ -38,12 +34,9 @@ Typography
 ## Mobile Wireframe - View
 ### Below you can see the mobile device wire frame;
 <img src="/static/images/mobileversion.png">;
-## Contact Us Page Wireframe - View
-### Below you can see the contact page wire frame;
-<img src="/static/images/Contactpage.png">;
-# Features
-## Responsive on all device sizes
-### After speaking to my mentor I used software called Responsinator to check that the site was able to adapt to many different devices.
+## Features
+### Responsive on all device sizes
+#### I checked the site out using google chrome and it was resposive
 
 # Interactive elements
 
@@ -52,59 +45,56 @@ Typography
 #### HTML5
 #### JavaScript
 #### CSS3
+#### DNSPYTHON
+#### Flask-pymongo
+#### Werzoeug
 ## Frameworks, Libraries & Programs Used
-### Bootstrap 4.4.1:
-#### Bootstrap was used to assist with the responsiveness and styling of the website.
+### Materialize
+#### Materialize was used to assist with the responsiveness and styling of the website.
 ### Font Awesome:
 #### Font Awesome was not used as the one icon I wanted did not display correctly so I made my own.
-### jQuery:
-#### jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
-## Git
-### Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+## GitPod
+### GitPod was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 ## GitHub:
 ### GitHub is used to store the projects code after being pushed from Gitpod.
 ## Photoshop:
 ### Photoshop was used to create the logo, resizing images and editing photos for the website.
-## Balsamiq:
-### Balsamiq was used to create the wireframes during the design process.
+## PC Paint:
+### PC Paint was used to create the wireframes during the design process this was due to the free version of Balsmic running out, but in fairness it worked as well and was able to show the basic page layout.
 
 # Testing
-## I have started to create the base of the website, at the moment I’m having an issue getting the site to work correctly when in mobile mode, the hamburger is displayed, but when you click on it the dropdown menu is not displayed, therefore the js file does not load and work correctly. ## After lots of work I found the correct way to get the Mongo Data Base talking to my GitPod 
-project and then deployed on Heroku, still having issue with Heroku.
+## I have started to create the base of the website, at the moment I’m having an issue getting the site to work correctly when in mobile mode, the hamburger is displayed, but when you click on it the dropdown menu is not displayed, therefore the js file does not load and work correctly. 
+## After lots of work and re listening to lesson, I found the correct way to get the Mongo Data Base talking to my GitPod project and then deployed on Heroku, still having issue with Heroku.
 ## Working on GitPod template hoping to get the sign in sorted, all seems to work after some teething problems, down to some naming errors in the app.py file, once corrected all is well.
 ## Getting the website to right to the MongoDB, I needed to used the correct logic and re-listen to the tutorials in order to get the logic sorted. Once I got the correct logic, it was easy.
 ## Adding sell item and sell classic to the app.py file and getting them to right to the data base I needed to re-listen to the tutorials again.
 ## Edit Sales item, the field should be populated from the MongoDB, this is not happening, after talking with the tutors, I was able to solve this error, code amended and now it works.
 ## The edit button throws an error, the error is “an unexpected argument”, this was dues to an error in the app.py. Once I reverted back to the pre error version of the app.py file I was able to see what had gone wrong and fix it.
-## after talking with my mentor I decided to simplify my site as I had too many categories in it, and it made fault finding very tricky as it felt like I was chasing my tail.
+## After talking with my mentor I decided to simplify my site as I had too many categories in it, and it made fault finding very tricky as it felt like I was chasing my tail.
 ## I have added a view sales categories very similarly to the add tasks section in the mini project.
-
-
+## I had an issue where the admin had to approved adverts in order tp show them, but as the admin approved the adds the admin took ownership of the advert, this is not an issue that was apparent too early on in my design until I created the user profile section, the admin owned all the ads, and the person that created them did not. This was sorted out once I was aware of the issue.
+## The site was then tidied up ready to submit it, new adds added and text made consistent throughout the site.
 
 
 ### Lighthouse Report
 #### From the report you can see that performance is good, accessibility is not good this was due to the way the links were done as the photos were all external links and therefore out of my control. I feel the site is working as well as it can, and it does not have any speed issues, as the code is very clean with no really links to unnecessary site.
 <img src="/static/images/lighhouse_review_of_site.png">;
 
-
-### 
-
 ## Returning Visitor Goals
-### 
-.
+### A returning visitor would need to be able to see the adds quickly and be able to view them easily.
 
 ## Frequent User Goals
-### As a Frequent User, I decided that they would need access to repair sites and places to ride, these will be added and the site will grow as the users add their favourite places that they want to share with other people.
+### As a Frequent User, I decided that they would need access to see if their items were still valid and to review the add to be sure it was correct.
 
 ## Further Testing
 
-### 
-.
+### I have run through the site’s operation one last time to make sure that it adds adverts and deletes them from the MongoDB site as it should, looking at the site on differing screaan sizes from Google Chrome the menus all work fine and the site looks good.
 
 # Known Bugs 
 
-### 
- 
+## The contact details and company information needs to be created, I ran out of time due to spending all my time on the data base interactions and getting the site to function correctly.
+## As the site is not a real one most of the information in the footer is made up and some of it does not have any links. This information could be added later if needed, but I have simply run out of time to even consider them.
+
 # Deployment
 
 ## Initial Development
@@ -113,7 +103,7 @@ project and then deployed on Heroku, still having issue with Heroku.
 ### The project was deployed to GitHub Pages.
 ## Deployment On GitHub from GitPod
 ### The first step was to create a template, which as this was a copy of the last site I created I simply copied the last site.
-### The next step was to start git pod from github.
+### The next step was to start gitpod from github.
 ### Once I had the site on gite hub I was able to copy the files from the old site to the new site.
 ### Once the design and development work was done, I did a final "git add .", then a "git commit -M "", and then the "git push" the site was then loaded onto github.
 ### Once on github and after leaving it guthub sometime to update, I checked the files to makesure they were correct.
@@ -134,37 +124,26 @@ project and then deployed on Heroku, still having issue with Heroku.
 ### Next enter the deployment section, and locate the correct GitHub and make sure that they are connected in Heroku.
 <img src="/static/images/connectherokutogithub.png">;
 ### The site was building but did not display, after reviewing the requirements.txt file I found that I had some requirements missing, once I did a freeze of the requirements.txt file the project was viewable on Heroku.
-
-
-
 # Credits
 ## Code
 ### I did not use a full-screen hero image in this version of my project just a small made up image found from a Google search.
+### I found code for the project from the mini project, which has been invaluable to helping me understand the logic and to getting my site to perform in a similar way to the mini project, with some subtle differences. I have tried to show the code used, and the ideas taken from the mini project, I have many ideas that could be used to improve the site, but I feel they are way above my level and possibly will be part of the next part of the course. This is what has happened on the other mile stone projects.
+### I also used the tutors from the code institute to help with some problems and was able to talk with Tim Henderson the guy that gave the mini project lessons, this was very helpful.
 
-### Materialize: i used the Materialize Library throughout the project mainly to make site responsive using the Materialize Grid System.
-### Materialize has been invaluable in making a responsive and useable website.
-## I found code for the project from the mini project, which has been invaluable to helping me understand the logic and to getting my site to perform in a similar way to the mini project, with some subtle differences.
-## I also used the tutors from the code institute to help with some problems and was able to talk with Tim Henderson the guy that gave the mini project lessons, this was very helpful..
+## Materialize
+## I used the Materialize Library throughout the project mainly to make site responsive using the Materialize Grid System.
+## Materialize has been invaluable in making a responsive and useable website.
+
 
 # Content
-## 
-.
-##.
-## 
+## Most of the content is generated from the MongoDB, but it has been formatted to fit into the site and be displayed correctly.
 
 # Media
 ## All Images were created using MS Paint to edit them to create the collage of pictures. They initially all came from a Google search and then were copied and pasted into the collage of images.
 ## The other images were had urls to the image and were found using Google.
-
-
-
-
-
 # Acknowledgements
-## My Mentor for continuous helpful feedback. I was able to learn so much from our short meetings, they have been invaluable to me. My mentor was able to help me think differently and to use different tools and code that were able to help with the project.
-.
+## My Mentor for continuous helpful feedback. I was able to learn so much from our short meetings, they have been invaluable to me. My mentor was able to help me think differently and to use different tools and code that were able to help me with the project.
 
 ## Tutor support at Code Institute for their support, while I have not used them for any of my projects, when I have contacted them regarding other issues they have been very helpful.
-
 
 
