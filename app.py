@@ -30,6 +30,7 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    # borrowed from mini project
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -52,6 +53,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    # this was borrowed from the mini project and adpated for this project
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
@@ -86,7 +88,7 @@ def profile(username):
     return render_template("account.html", username=username, Sale_Item=sale_items)
 
 
-# For selling an item/classic
+# For selling an item/classic adapted for my project
 @app.route("/sellclassic", methods=["GET", "POST"])
 def sellclassic():
     if request.method == "POST":
@@ -120,7 +122,7 @@ def edit_classic(task_id):
     task = mongo.db.Sale_Item.find_one({"_id": ObjectId(task_id)})
     return render_template("sellitem_edit.html", task=task, saletype=categories)
 
-# To edit a item/classic
+# To edit a item/classic adapted from the selling an item section
 @app.route("/edititem/<sale_id>", methods=["GET", "POST"])
 def edititem(sale_id):
     if request.method == "POST":
@@ -157,7 +159,7 @@ def delete_task(task_id):
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    # remove user from session cookie taken from mini project
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -170,6 +172,7 @@ def get_saletype():
 
 @app.route("/add_saletype", methods=["GET", "POST"])
 def add_saletype():
+    # adapted from mini project
     if request.method == "POST":
         saletype = {
             "salename": request.form.get("salename")

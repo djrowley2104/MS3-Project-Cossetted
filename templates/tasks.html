@@ -5,6 +5,7 @@
         {% if task.Approved == "on" or session.user|lower == "admin"|lower %}
         <div class="col s8 m4">
 			    <div class="card">
+                    <!-- shows approved sales for the whole site -->
                     <div class="card-image s8">
                         <img class="activator" src="{{ task.Photo or url_for('static', filename='images/comicbike.png') }}" width="auto" height="auto">
                     </div>

@@ -15,14 +15,15 @@
 <body class="blue lighten-2">
     <header>
         <nav>
+            <!-- This is the basis for the whole site, and was created from a Materialize template amended for the site -->
             <div class="nav-wrapper blue lighten-2 shadow">
             <a href="{{ url_for('home') }}" class="brand-logo"><img class="activator" 
                 src="{{ url_for('static', filename='images/Cossetedclassics.png') }}"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                    {% if session.user %}
-                    <li><a href="{{ url_for('get_tasks') }}">Buy</a></li>
-                    <li><a href="{{ url_for('sellclassic') }}">Sell</a></li>
+                    <li><a href="{{ url_for('get_tasks') }}">Classified Adds</a></li>
+                    <li><a href="{{ url_for('sellclassic') }}">Sell an Item</a></li>
                      {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_saletype') }}">Edit Sale Types</a></li>
                      {% endif %}
@@ -35,19 +36,19 @@
                 </ul>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-demo">
+        <ul class="sidenav blue lighten-2" id="mobile-demo">
             {% if session.user %}
-                    <li><a href="{{ url_for('get_tasks') }}">Buy</a></li>
-                    <li><a href="{{ url_for('sellclassic') }}">Sell</a></li>
+                    <li><a href="{{ url_for('get_tasks') }}">Classified Adds</a></li>
+                    <li><a href="{{ url_for('sellclassic') }}">Sell an Item</a></li>
                      {% if session.user|lower == "admin"|lower %}
-                        <li><a href="edit_saletype">Edit Sale Types</a></li>
+                        <li><a href="{{ url_for('get_saletype') }}">Edit Sale Types</a></li>
                      {% endif %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Account Details</a></li>
                     <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                    {% else %}
                     <li><a href="{{ url_for('register') }}">Sign Up</a></li>
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
-                   {% endif %}
+            {% endif %}
         </ul>
   </header>
 
@@ -77,7 +78,8 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of dedicted ethusiasts that are passionate about the project and giving the high quality of service to both the buyer ans seller. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of dedicted ethusiasts that are passionate about the project and giving the high quality of service to both the buyer and seller.
+            </p>
 
 
         </div>
